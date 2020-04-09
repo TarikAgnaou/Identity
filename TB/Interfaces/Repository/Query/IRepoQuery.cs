@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ToolBox.Interfaces.Repository
+namespace TB.Interfaces.Repository.Query
 {
-    public interface IRepository<T>
+    public interface IRepoQuery<T>
     {
     }
 }

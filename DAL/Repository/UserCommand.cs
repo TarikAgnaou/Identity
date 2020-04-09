@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using ToolBox.TOs;
 
-namespace DAL.Repository
+namespace DALC.Repository
 {
-    public class UserRepo : Repository<UserTO>
+    public class UserCommand : RepoCommand<UserTO>
     {
     }
 }
