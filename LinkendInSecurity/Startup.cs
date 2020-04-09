@@ -1,20 +1,16 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LinkendInSecurity.Data;
-using LinkendInSecurity.Handlers;
-using LinkendInSecurity.Models;
-using LinkendInSecurity.Requirements;
+using BLL.Services.Handlers;
+using BLL.Services.Requirements;
+using DAL.DBContext;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ToolBox.TOs;
 
 namespace LinkendInSecurity
 {
@@ -30,7 +26,7 @@ namespace LinkendInSecurity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentity<User, Role>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<UserTO, RoleTO>().AddEntityFrameworkStores<AppDbContext>();
 
             services.AddDbContext<AppDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -78,8 +74,8 @@ namespace LinkendInSecurity
 
         private void CreateRoles(IServiceProvider serviceProvider)
         {
-            var rolesManager = serviceProvider.GetService<RoleManager<Role>>();
-            var roles = Role.Roles;
+            var rolesManager = serviceProvider.GetService<RoleManager<RoleTO>>();
+            var roles = RoleTO.Roles;
 
             foreach (var roleName in roles)
             {
@@ -89,7 +85,7 @@ namespace LinkendInSecurity
 
                 if (!roleExists)
                 {
-                    rolesManager.CreateAsync(new Role { Name = roleName })
+                    rolesManager.CreateAsync(new RoleTO { Name = roleName })
                         .GetAwaiter()
                         .GetResult();
                 }

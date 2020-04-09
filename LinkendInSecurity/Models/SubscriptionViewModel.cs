@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Threading.Tasks;
+using ToolBox.TOs;
 
 namespace LinkendInSecurity.Models
 {
@@ -29,7 +28,7 @@ namespace LinkendInSecurity.Models
         public string RoleSelected { get; set; }
 
         public List<SelectListItem> Roles { get; }
-            = Role.Roles
+            = RoleTO.Roles
                 .Select(role => new SelectListItem { Value = role, Text = role })
                 .ToList();
 

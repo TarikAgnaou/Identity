@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace LinkendInSecurity.Requirements
+namespace BLL.Services.Requirements
 {
     public class MinAgeRequirements : IAuthorizationRequirement
     {
@@ -14,5 +10,6 @@ namespace LinkendInSecurity.Requirements
         {
             MinAge = minAge;
         }
+
     }
 }

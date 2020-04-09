@@ -1,11 +1,9 @@
-﻿using LinkendInSecurity.Requirements;
+﻿using BLL.Services.Requirements;
 using Microsoft.AspNetCore.Authorization;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LinkendInSecurity.Handlers
+namespace BLL.Services.Handlers
 {
     public class MinAgeHandler : AuthorizationHandler<MinAgeRequirements>
     {

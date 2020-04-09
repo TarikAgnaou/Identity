@@ -1,14 +1,11 @@
-﻿using LinkendInSecurity.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ToolBox.TOs;
 
-namespace LinkendInSecurity.Data
+namespace DAL.DBContext
 {
-    public class AppDbContext : IdentityDbContext<User,Role,Guid>
+    public class AppDbContext : IdentityDbContext<UserTO, RoleTO, Guid>
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {

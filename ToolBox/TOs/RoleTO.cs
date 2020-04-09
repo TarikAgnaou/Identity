@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace LinkendInSecurity.Models
+namespace ToolBox.TOs
 {
-    public class Role : IdentityRole<Guid>
+    public class RoleTO : IdentityRole<Guid>
     {
         public static string[] Roles = new string[]
         {

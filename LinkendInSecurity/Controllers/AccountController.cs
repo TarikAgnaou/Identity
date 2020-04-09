@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using LinkendInSecurity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ToolBox.TOs;
 
 namespace LinkendInSecurity.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<UserTO> _userManager;
+        private readonly SignInManager<UserTO> _signInManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<UserTO> userManager, SignInManager<UserTO> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -43,7 +41,7 @@ namespace LinkendInSecurity.Controllers
                 return View(subscriptionVM);
             }
 
-            var user = new User
+            var user = new UserTO
             {
                 Email = subscriptionVM.Email,
                 FirstName = subscriptionVM.FirstName,

@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace LinkendInSecurity.Models
+namespace ToolBox.TOs
 {
-    public class User : IdentityUser<Guid>
+    public class UserTO : IdentityUser<Guid>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
