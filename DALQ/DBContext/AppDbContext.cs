@@ -7,7 +7,7 @@ namespace DALQ.DBContext
 {
     public class AppDbContext : IdentityDbContext<UserTO, RoleTO, Guid>
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }

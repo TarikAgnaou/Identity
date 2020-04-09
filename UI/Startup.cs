@@ -1,7 +1,8 @@
 using System;
 using BLL.Applications.Handlers;
 using BLL.Applications.Requirements;
-using DAL.DBContext;
+using DALC.DBContext;
+using DALQ.DBContext;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,9 +27,10 @@ namespace LinkendInSecurity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentity<UserTO, RoleTO>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<UserTO, RoleTO>().AddEntityFrameworkStores<DALC.DBContext.AppDbContext>();
 
-            services.AddDbContext<AppDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DALC.DBContext.AppDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DALQ.DBContext.AppDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.ConfigureApplicationCookie(o => o.LoginPath = "/Account/Login");
             services.AddControllersWithViews();
