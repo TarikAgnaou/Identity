@@ -1,6 +1,6 @@
 using System;
-using BLL.Services.Handlers;
-using BLL.Services.Requirements;
+using BLL.Applications.Handlers;
+using BLL.Applications.Requirements;
 using DAL.DBContext;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;

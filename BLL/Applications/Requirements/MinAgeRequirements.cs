@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace BLL.Services.Requirements
+namespace BLL.Applications.Requirements
 {
     public class MinAgeRequirements : IAuthorizationRequirement
     {

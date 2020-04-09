@@ -1,9 +1,9 @@
-﻿using BLL.Services.Requirements;
+﻿using BLL.Applications.Requirements;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BLL.Services.Handlers
+namespace BLL.Applications.Handlers
 {
     public class MinAgeHandler : AuthorizationHandler<MinAgeRequirements>
     {

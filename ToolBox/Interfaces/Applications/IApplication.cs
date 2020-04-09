@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ToolBox.Interfaces
+namespace ToolBox.Interfaces.Application
 {
-    class Class1
+    public interface IApplication<T>
     {
     }
 }
